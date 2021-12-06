@@ -1,10 +1,14 @@
 package com.pizzapalace2.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -26,11 +30,13 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId;
 
-    @Column(name = "user_id")
-    private int userId; 
-    
-    @Column(name = "restaurant_id")
-    private float resaurantId; 
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinColumn(name="user_id")
+    private User userId; 
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinColumn(name="restaurant_id")
+    private Restaurant restaurantId; 
     
     @Column(name = "total")
     private float total; 
@@ -41,12 +47,13 @@ public class Order {
     @Column(name = "details")
     private String details;
 
-	public Order(int userId, float resaurantId, float total, String address, String details) {
+	public Order(User userId, Restaurant restaurantId, float total, String address, String details) {
 		super();
 		this.userId = userId;
-		this.resaurantId = resaurantId;
+		this.restaurantId = restaurantId;
 		this.total = total;
 		this.address = address;
 		this.details = details;
 	}
+
 }

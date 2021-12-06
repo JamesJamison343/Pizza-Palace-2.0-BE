@@ -2,8 +2,8 @@ server:
   port: 9025
  
 spring:
-  datasource:
-    url: jdbc:postgresql://jajamisondb.cbh385ncztsi.us-east-2.rds.amazonaws.com
+  datasource: 
+    url: jdbc:postgresql://jajamisondb.cbh385ncztsi.us-east-2.rds.amazonaws.com/pp2db
     username: pp2user
     password: P@ssword21
     driver-class-name: org.postgresql.Driver
@@ -11,6 +11,6 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
       
  
