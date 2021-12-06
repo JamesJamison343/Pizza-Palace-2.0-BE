@@ -34,6 +34,9 @@ public class Item {
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurantId; 
+	
+	@Column(name = "item_name")
+	private String itemName;
     
     @Column(name = "price")
     private float price;
@@ -44,6 +47,8 @@ public class Item {
     @Column(name = "description")
     private String description; 
     
+    @Column(name = "image")
+    private String image;
 
 	public Item(Restaurant restaurantId, float price, String type, String description) {
 		super();
