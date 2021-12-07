@@ -1,4 +1,4 @@
-package com.pizzaplace2.controller;
+package com.pizzapalace2.controller;
 
 import java.util.List;
 
